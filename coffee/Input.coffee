@@ -1,9 +1,11 @@
+# Add to this as required, but dont forget the are builtin things to convert non-special keys to keycodes and vice versa
 Keys = 
     LEFT: 37
     UP: 38
     RIGHT: 39
     DOWN: 40
 
+# Monitors keyboard state to facilitate "isPressed" state queries
 class Keyboard
     constructor: ->
         window.addEventListener("keydown",@keyDown)
