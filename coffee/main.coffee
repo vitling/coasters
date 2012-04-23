@@ -11,12 +11,9 @@ require(["Graphics","Input"], (Graphics,Input) ->
     
     tilemap.setTile(x,0,"wall") for x in [0...50]
     tilemap.setTile(0,y,"wall") for y in [0...50]
-    
     tilemap.setTile(Math.floor(Math.random()*50),Math.floor(Math.random()*50),"wall") for x in [0...100]
-    
 
-    camera={x:0,y:0}
-    player={x:0,y:0}
+    player={x:640,y:480}
     
     updateGame = ->
         player.x-=4 if keyboard.isPressed(Input.Keys.LEFT)
@@ -25,11 +22,13 @@ require(["Graphics","Input"], (Graphics,Input) ->
         player.y+=4 if keyboard.isPressed(Input.Keys.DOWN)
         
         view.moveTowards player
+        
+        view.clear()
         tilemap.draw images, view
         view.draw images.get("player"),player
     
     images.loadImages("img",imageFiles,->
-        setInterval updateGame,10
+        setInterval updateGame,25
     )
   )
 

@@ -1,7 +1,5 @@
 nullFunction=->
 
-zeroVector={x:0,y:0}
-
 class ImageStore
     constructor: ->
         @store = {}
@@ -27,6 +25,9 @@ class View
         @focus = {x:0,y:0}
         @dimensions = {w:canvas.width, h:canvas.height}
         @context = canvas.getContext('2d')
+        
+    clear: ->
+        @context.fillRect(0,0,@dimensions.w,@dimensions.h,"black")
     
     moveTowards: (position) ->
         @focus.x+=(position.x-@focus.x)/20
