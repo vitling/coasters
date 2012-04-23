@@ -1,0 +1,2 @@
+# ignore sources compiled by coffeescript
+js/*.js
