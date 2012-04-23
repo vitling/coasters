@@ -1,15 +1,19 @@
 require(["Graphics","Input"], (Graphics,Input) ->
     imageFiles = 
-        floor:"tile_floor.gif"
-        wall:"tile_wall.jpg"
-        player:"player.jpg"
+        floor:"tile_floor.png"
+        wall:"tile_wall.png"
+        player:"player.png"
     
     images = new Graphics.ImageStore()
-    tilemap = new Graphics.TileMap(50,50,"floor")
+    tilemap = new Graphics.TileMap(50,50,"floor", 32)
     view = new Graphics.View(document.getElementById("canvas"))
-    keyboard = new Input.Keyboard()
+    keyboard = new Input.Keyboard()	
     
-    tilemap.setTile(0,0,"wall")
+    tilemap.setTile(x,0,"wall") for x in [0...50]
+    tilemap.setTile(0,y,"wall") for y in [0...50]
+    
+    tilemap.setTile(Math.floor(Math.random()*50),Math.floor(Math.random()*50),"wall") for x in [0...100]
+    
 
     camera={x:0,y:0}
     player={x:0,y:0}
