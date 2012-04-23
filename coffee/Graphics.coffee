@@ -33,7 +33,7 @@ class TileMap
         canvasContext.drawImage(tile,xScreen,yScreen)
     
     draw: (canvasContext, imageStore, scroll) ->
-        maxTiles={x: Math.ceil(canvasContext.width/ 64),y: Math.ceil(canvasContext.width/64)}
+        maxTiles={x: Math.ceil(canvasContext.canvas.width/ 64),y: Math.ceil(canvasContext.canvas.width/64)}
         tileScroll={x: Math.floor(scroll.x/ 64),y: Math.floor(scroll.y/64)}
         start={x:Math.max(0,tileScroll.x),y:Math.max(0,tileScroll.y)}
         end={x:Math.min(@width, tileScroll.x+maxTiles.x),y:Math.min(@width, tileScroll.y+maxTiles.y)}
